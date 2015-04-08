@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Example 9 | Marionette modules en applicatie structuur</title>
+
+    <style>
+        table {
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        th {
+            border-bottom: 2px solid #000;
+            text-align: left;
+        }
+
+        tr td {
+            border-bottom: 1px solid #000;
+        }
+
+        tr:last-of-type td {
+            border-bottom: none;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        #app {
+            border-top: 2px solid #000;
+            padding: 10px 0;
+        }
+
+        #app:after {
+            clear: both;
+            content: '';
+            display: table;
+        }
+
+        #app > .left, #app > .right {
+            float: left;
+        }
+
+        #app > .left {
+            width: 15%;
+        }
+
+        #app > .right {
+            width: 85%;
+        }
+    </style>
+</head>
+<body>
+    <h3>Marionette modules en applicatie structuur</h3>
+
+    <p>Een simpele e-mailclient</p>
+
+    <div id="app">
+        <div data-region="menu" class="left"></div>
+        <div data-region="main" class="right"></div>
+    </div>
+
+    <script type="text/template" id="menu-item-template">
+        <a href="javascript:void(0)" data-action="navigate"><%= name %></a>
+    </script>
+
+    <script type="text/template" id="contact-list-template">
+        <thead>
+            <tr>
+                <th>Naam</th>
+                <th>E-mailadres</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </script>
+
+    <script type="text/template" id="contact-item-template">
+        <td><%= firstName %> <%= lastName %></td>
+        <td><%= email %></td>
+    </script>
+
+    <script type="text/template" id="contact-empty-template">
+        <td colspan="2" style="text-align: center">U heeft nog geen contacten</td>
+    </script>
+
+    <script type="text/template" id="message-list-template">
+        <tbody></tbody>
+    </script>
+
+    <script type="text/template" id="message-item-template">
+        <td>
+            <a href="javascript:void(0)" data-action="mark-as-read">
+                <% if (read) { %>
+                    &FilledSmallSquare;
+                <% } else { %>
+                    &EmptySmallSquare;
+                <% } %>
+            </a>
+        </td>
+        <td><%= subject %></td>
+        <td><%= from %></td>
+        <td><%= date %></td>
+    </script>
+
+    <script type="text/template" id="message-empty-template">
+        <td colspan="4" style="text-align: center">Inbox zero!</td>
+    </script>
+
+    <script type="text/template" id="message-detail-template">
+        <tr>
+            <th>Afzender</th>
+            <td><%= from %></td>
+        </tr>
+
+        <tr>
+            <th>Onderwerp</th>
+            <td><%= subject %></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><%= body %></td>
+        </tr>
+    </script>
+
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../vendor/underscore.js"></script>
+    <script src="../vendor/backbone.js"></script>
+    <script src="../vendor/marionette.js"></script>
+    <script src="../models/employee.js"></script>
+    <script src="../fixtures/employees.js"></script>
+    <script src="app.js"></script>
+    <script src="entities/contact.js"></script>
+    <script src="entities/message.js"></script>
+    <script src="apps/menu/menu-app.js"></script>
+    <script src="apps/contacts/contacts-app.js"></script>
+    <script src="apps/contacts/list/controller.js"></script>
+    <script src="apps/contacts/list/view.js"></script>
+    <script src="apps/messages/messages-app.js"></script>
+    <script src="apps/messages/list/controller.js"></script>
+    <script src="apps/messages/list/view.js"></script>
+    <script src="apps/messages/show/controller.js"></script>
+    <script src="apps/messages/show/view.js"></script>
+</body>
+</html>

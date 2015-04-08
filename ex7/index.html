@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Example 7 | Lijsten met Marionette</title>
+</head>
+<body>
+    <h3>Lijsten met Marionette</h3>
+
+    <div id="app"></div>
+
+    <script type="text/template" id="employee-row-template">
+        <%= firstName %> <%= lastName %>
+    </script>
+
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../vendor/underscore.js"></script>
+    <script src="../vendor/backbone.js"></script>
+    <script src="../vendor/marionette.js"></script>
+    <script src="../models/employee.js"></script>
+    <script src="../fixtures/employees.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Example 2 | Simpele lijsten weergeven</title>
+</head>
+<body>
+    <h3>Simpele lijsten weergeven</h3>
+
+    <div id="app"></div>
+
+    <script type="text/template" id="employee-list-template">
+        <% _.each(employees, function(employee) { %>
+            <li><%= employee.firstName %> <%= employee.lastName %></li>
+        <% }) %>
+    </script>
+
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../vendor/underscore.js"></script>
+    <script src="../vendor/backbone.js"></script>
+    <script src="../models/employee.js"></script>
+    <script src="../fixtures/employees.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

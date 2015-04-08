@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Example 6 | De Router en HTML5 PushState</title>
+</head>
+<body>
+    <h3>De Router en HTML5 PushState</h3>
+
+    <div id="app"></div>
+
+    <script type="text/template" id="employee-row-template">
+        <%= firstName %> <%= lastName %>
+    </script>
+
+    <script type="text/template" id="employee-detail-template">
+        <tr>
+            <th>Voornaam</th>
+            <td><%= firstName %></td>
+        </tr>
+
+        <tr>
+            <th>Achternaam</th>
+            <td><%= lastName %></td>
+        </tr>
+
+        <tr>
+            <th>Functie</th>
+            <td><%= occupation %></td>
+        </tr>
+    </script>
+
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../vendor/underscore.js"></script>
+    <script src="../vendor/backbone.js"></script>
+    <script src="../models/employee.js"></script>
+    <script src="../fixtures/employees.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
